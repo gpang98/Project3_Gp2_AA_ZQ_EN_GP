@@ -1,0 +1,118 @@
+/* Add this to your styles.css to style the header with a light grey background */
+.header h1 {
+  background-color: #f5f5f5; /* Light grey color */
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+.bold-header {
+  font-weight: bold;
+}
+
+/* Additional styling for the h3 element within the header */
+.header h3 {
+  margin: 0;
+  background-color: #f5f5f5;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.row {
+  height: 40px; /* Set the height to your desired value */
+}
+
+.col-md-2 {
+  height: 40px; /* Set the height to your desired value */
+  background-color: #f5f5f5; /* Light grey color */
+}
+
+.well {
+  height: 40px; /* Set the height to your desired value */
+  padding: 0;
+  background-color: #f5f5f5; /* Light grey color */
+}
+
+h3, h4, h5 {
+  font-weight: bold;
+}
+
+/* Additional styling for the h1 element within the header */
+.Stock_Information_header {
+  background-color: #f5f5f5; /* Light grey color */
+  margin: 5; /* Remove default margin to avoid spacing */
+  padding: 0px; /* Add padding for spacing */
+  text-align: center; /* Center align the content */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Add this to your styles.css to create a row layout for the stock information columns */
+.stock-information {
+  display: flex;
+  flex-wrap: wrap; /* Allow columns to wrap to the next row */
+  margin: 0; /* Remove default margin to avoid spacing */
+  justify-content: space-between;
+  background-color: #f5f5f5; /* Light grey color */
+  padding: 0px; /* Add padding for spacing */
+  text-align: center; /* Center align the content */
+}
+
+/* Additional styling for the stock information header */
+.stock-information h2 {
+  width: 100%; /* Make the <h3> element take 100% width */
+  text-align: center; /* Center align the text */
+  background-color: #f5f5f5; /* Light grey color */
+  padding: 0px; /* Add padding for spacing */
+  margin: 0 0px; /* Adjust the left and right margin as needed */
+  /* margin: 0 20px; /* Adjust the left and right margin as needed */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Additional styling for each stock information column */
+.column {
+  width: calc(100% - 10px); /* Calculate width with margin */
+  box-sizing: border-box; /* Include padding and border in the width */
+  margin: 10px; /* Add margin for spacing between columns */
+  padding: 1px; /* Add padding for spacing */
+  border: 1px solid #ddd; /* Add a border for separation (optional) */
+  font-size: 14px; /* Adjust font size as needed */
+  height: 20px; /* Adjust the height as needed */
+}
+
+/* Additional styling for the subtitle within each column */
+.column h4 {
+  margin-top: 0; /* Remove default margin to avoid spacing */
+  font-size: 16px; /* Adjust font size as needed */
+  color: #333; /* Set text color */
+  text-align: center; /* Center-align the title */
+  background-color: #ddd; /* Light grey background for the title */
+  padding: 5px; /* Add padding for spacing */
+  text-align: center; /* Center align the content */
+  font-weight: bold; /* Make the text bold */
+}
+
+#tickerChart {
+  border: 1px solid #87CEEB;
+  background-color: #f5f5f5;
+  padding: 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 400px;
+}
+
+/* Add this to your styles.css to create a row layout for the bar charts */
+.bottom-charts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chart {
+  width: 30%;
+  height: 300px;
+}

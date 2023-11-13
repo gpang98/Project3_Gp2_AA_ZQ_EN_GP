@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ASX Stock Selector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.1.1/build/global/luxon.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./static/js/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>ASX Stock Selector</h1>
+        <h3>An Interactive Method of Evaluating</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div class="well">
+                <h5 class="bold-header">Select Industry Group:</h5>
+                <select class="form-control" id="industryGroupDropdown" onchange="optionChanged(this.value)">
+                    <!-- Options will be populated dynamically from JavaScript -->
+                </select>
+            </div>
+        </div>
+    
+        <div class="col-md-2">
+            <div class="well">
+                <h5 class="bold-header">Select Ticker:</h5>
+                <select class="form-control" id="tickerDropdown" onchange="optionChanged(this.value)">
+                    <!-- Options will be populated dynamically from JavaScript -->
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+
+
+    <div class="Stock_Information_header">
+        <h3>Stock Information</h3>
+    </div>
+
+    <div class="stock-information" id="stockInformation">
+        
+        <div class="columns-container">
+            <h4>Basic Information</h4>
+            <div class="column" id="column1"></div>  <!-- Company Name -->
+            <div class="column" id="column2"></div>  <!-- Industry Group -->
+            <div class="column" id="column3"></div>  <!-- Last Price -->
+            <div class="column" id="column4"></div>  <!-- Change -->
+            <div class="column" id="column6"></div>  <!-- Volume Per Day -->
+            <div class="column" id="column7"></div>  <!-- Volume 4Wk Avg -->
+            <div class="column" id="column8"></div>  <!-- Open -->
+            <div class="column" id="column9"></div>  <!-- Day Range -->
+            <div class="column" id="column10"></div>  <!-- Previous Close -->
+            <div class="column" id="column11"></div>  <!-- Last Trade -->
+            
+            
+        </div>
+
+        <div class="columns-container">
+            <h4>Performance</h4>
+            <div class="column" id="column12"></div>  <!-- One Week -->
+            <div class="column" id="column13"></div>  <!-- One Month -->
+            <div class="column" id="column14"></div>  <!-- 2023 YTD -->
+            <div class="column" id="column15"></div>  <!-- vs Sector (One Year) -->
+            <div class="column" id="column16"></div>  <!-- vs ASX200 (One Year) -->
+            <div class="column" id="column18"></div>  <!-- ASX Rank -->
+            <div class="column" id="column19"></div>  <!-- Sector Rank -->
+            <div class="column" id="column21"></div>  <!-- Sector -->
+            <div class="column" id="column22"></div>  <!-- Similar Companies -->
+            
+
+        </div>
+
+        <div class="columns-container">
+            <h4>Metrics & Recommendation</h4>
+            <!-- Third row of columns -->
+            <div class="column" id="column17"></div>  <!-- Market Cap -->
+            <div class="column" id="column20"></div>  <!-- Shares Issued -->
+            <div class="column" id="column23"></div>  <!-- EPS -->
+            <div class="column" id="column24"></div>  <!-- DPS -->
+            <div class="column" id="column25"></div>  <!-- Book Value PerShare -->
+            <div class="column" id="column26"></div>  <!-- Breakdown -->
+            <div class="column" id="column27"></div>  <!-- Recommendation -->
+            <div class="column" id="column28"></div>  <!-- Last Updated -->
+            <div class="column" id="column29"></div>  <!-- PE -->
+            <!-- You can add more columns if needed -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="left-content">
+            <!-- Existing content goes here -->
+        </div>
+        <div class="right-content">
+            <canvas id="tickerChart"></canvas>  <!-- Chart.js uses canvas instead of div -->
+        </div>
+    </div>
+
+    <div class="bottom-charts">
+        <div class="Stock_Information_header">
+            <h4>Companies Comparison</h4>
+        </div>
+        <div id="marketCapChart" class="chart"></div>
+        <div id="epsChart" class="chart"></div>
+        <div id="dpsChart" class="chart"></div>
+        <div id="peChart" class="chart"></div>
+    </div>
+
+    <!-- Include your JavaScript file containing the code -->
+    <script src="./static/js/plot.js"></script>
+
+    <script>
+        // Add an event listener to the Industry Group dropdown
+        document.getElementById("industryGroupDropdown").addEventListener("change", (event) => {
+            selectedIndustryGroup = event.target.value;
+            populateTickerDropdown(selectedIndustryGroup);
+            updateBarCharts(selectedIndustryGroup);
+        });
+    
+        // Add an event listener to the "ticker" dropdown
+        document.getElementById("tickerDropdown").addEventListener("change", (event) => {
+            selectedTicker = event.target.value;
+            updateStockInfo(selectedTicker);
+            updateTimeSeriesChart(selectedTicker);
+            updateBarCharts(selectedIndustryGroup);
+        });
+    </script>
+    
+</body>
+</html>
