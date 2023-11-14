@@ -313,7 +313,7 @@ async function updateTimeSeriesChart(selectedTicker) {
 
     // Step 8: Update EPS data for Plotly
     const epsChartData = [
-      { x: companies, y: epsValues, type: 'bar', name: 'EPS (AUD)' }
+      { x: companies, y: epsValues, type: 'bar', name: 'EPS (USD)' }
     ];
 
     // Step 9: Update DPS data for Plotly
@@ -331,7 +331,7 @@ async function updateTimeSeriesChart(selectedTicker) {
       barmode: 'group',
       title: 'Market Cap Comparison',
       xaxis: { title: 'Company' },
-      yaxis: { title: 'Market Cap (in billions AUD)' }
+      yaxis: { title: 'Market Cap (in billions USD)' }
     };
     Plotly.newPlot('marketCapChart', marketCapChartData, marketCapChartLayout);
 
@@ -340,7 +340,7 @@ async function updateTimeSeriesChart(selectedTicker) {
       barmode: 'group',
       title: 'EPS Comparison',
       xaxis: { title: 'Company' },
-      yaxis: { title: 'EPS (AUD)' }
+      yaxis: { title: 'EPS (USD)' }
     };
     Plotly.newPlot('epsChart', epsChartData, epsChartLayout);
 
@@ -349,7 +349,7 @@ async function updateTimeSeriesChart(selectedTicker) {
       barmode: 'group',
       title: 'Dividend PerShare',
       xaxis: { title: 'Company' },
-      yaxis: { title: 'DPS (AUD)' }
+      yaxis: { title: 'DPS (USD)' }
     };
     Plotly.newPlot('dpsChart', dpsChartData, dpsChartLayout);
 
